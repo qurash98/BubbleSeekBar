@@ -4,7 +4,7 @@ def VERSION_NAME = "3.19"
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 16
@@ -22,8 +22,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'com.android.support:appcompat-v7:27.1.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly 'com.android.support:appcompat-v7:27.1.1'
 }
 
 apply plugin: 'com.novoda.bintray-release'
