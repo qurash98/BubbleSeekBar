@@ -53,19 +53,19 @@ public class DemoFragment4 extends Fragment {
         });
         bubbleSeekBar2.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListenerAdapter() {
             @Override
-            public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+            public void onProgressChanged(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat, boolean fromUser) {
                 String s = String.format(Locale.CHINA, "onChanged int:%d, float:%.1f", progress, progressFloat);
                 progressText1.setText(s);
             }
 
             @Override
-            public void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat) {
+            public void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat) {
                 String s = String.format(Locale.CHINA, "onActionUp int:%d, float:%.1f", progress, progressFloat);
                 progressText2.setText(s);
             }
 
             @Override
-            public void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+            public void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat, boolean fromUser) {
                 String s = String.format(Locale.CHINA, "onFinally int:%d, float:%.1f", progress, progressFloat);
                 progressText3.setText(s);
             }
@@ -90,19 +90,19 @@ public class DemoFragment4 extends Fragment {
         });
         bubbleSeekBar4.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListenerAdapter() {
             @Override
-            public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+            public void onProgressChanged(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat, boolean fromUser) {
                 int color;
-                if (progress <= 10) {
-                    color = ContextCompat.getColor(mActivity, R.color.color_red);
-                } else if (progress <= 40) {
-                    color = ContextCompat.getColor(mActivity, R.color.color_red_light);
-                } else if (progress <= 70) {
-                    color = ContextCompat.getColor(mActivity, R.color.colorAccent);
-                } else if (progress <= 90) {
-                    color = ContextCompat.getColor(mActivity, R.color.color_blue);
-                } else {
+//                if (progress <= 10) {
+//                    color = ContextCompat.getColor(mActivity, R.color.color_red);
+//                } else if (progress <= 40) {
+//                    color = ContextCompat.getColor(mActivity, R.color.color_red_light);
+//                } else if (progress <= 70) {
+//                    color = ContextCompat.getColor(mActivity, R.color.colorAccent);
+//                } else if (progress <= 90) {
+//                    color = ContextCompat.getColor(mActivity, R.color.color_blue);
+//                } else {
                     color = ContextCompat.getColor(mActivity, R.color.color_green);
-                }
+//                }
 
                 bubbleSeekBar.setSecondTrackColor(color);
                 bubbleSeekBar.setThumbColor(color);

@@ -1119,8 +1119,8 @@ public class BubbleSeekBar extends View {
         postInvalidate();
     }
 
-    public int getProgress() {
-        return Math.round(processProgress());
+    public String getProgress() {
+        return intToString(Math.round(processProgress()) / 60) + ":" + intToString(Math.round(processProgress()) % 60);
     }
 
     public float getProgressFloat() {
@@ -1348,11 +1348,11 @@ public class BubbleSeekBar extends View {
      */
     public interface OnProgressChangedListener {
 
-        void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser);
+        void onProgressChanged(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat, boolean fromUser);
 
-        void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat);
+        void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat);
 
-        void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser);
+        void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat, boolean fromUser);
     }
 
     /**
@@ -1363,15 +1363,15 @@ public class BubbleSeekBar extends View {
     public static abstract class OnProgressChangedListenerAdapter implements OnProgressChangedListener {
 
         @Override
-        public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+        public void onProgressChanged(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat, boolean fromUser) {
         }
 
         @Override
-        public void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat) {
+        public void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat) {
         }
 
         @Override
-        public void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+        public void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, String progress, float progressFloat, boolean fromUser) {
         }
     }
 
@@ -1487,5 +1487,11 @@ public class BubbleSeekBar extends View {
                 invalidate();
             }
         }
+    }
+
+    private String intToString(int value) {
+        if ((value + "").length() == 1)
+            return "0" + value;
+        else return "" + value;
     }
 }
