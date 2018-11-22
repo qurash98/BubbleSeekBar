@@ -468,7 +468,7 @@ public class BubbleSeekBar extends View {
         getLocationOnScreen(mPoint);
 
         ViewParent parent = getParent();
-        if (parent != null && parent instanceof View && ((View) parent).getMeasuredWidth() > 0) {
+        if (parent instanceof View && ((View) parent).getMeasuredWidth() > 0) {
             mPoint[0] %= ((View) parent).getMeasuredWidth();
         }
 
